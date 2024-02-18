@@ -66,6 +66,10 @@
   .p {
     text-shadow: 1px 4px 4px rgba(0, 0, 0, 0.4);
   }
+
+  .card:hover .overlay {
+    bottom: 0;
+  }
 }
 
 .slick-dots ul .slick-active {

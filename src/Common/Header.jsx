@@ -17,11 +17,11 @@ const Header = () => {
               <img src={logo} alt={logo} />
             </div>
             <div className="list m-auto">
-              <ul className="flex gap-x-10">
+              <ul className="flex gap-x-10 ">
                 <li>
                   <a
                     href="#"
-                    className="text-sm text-secondaryFontColor font-DMsans font-normal"
+                    className="text-sm text-secondaryFontColor font-DMsans font-normal "
                   >
                     Home
                   </a>
@@ -30,7 +30,7 @@ const Header = () => {
                   {" "}
                   <a
                     href="#"
-                    className="text-sm text-secondaryFontColor font-DMsans font-normal"
+                    className="text-sm text-secondaryFontColor font-DMsans font-normal "
                   >
                     Shop
                   </a>
@@ -39,7 +39,7 @@ const Header = () => {
                   {" "}
                   <a
                     href="#"
-                    className="text-sm text-secondaryFontColor font-DMsans font-normal"
+                    className="text-sm text-secondaryFontColor font-DMsans font-normal  "
                   >
                     About
                   </a>
@@ -48,7 +48,7 @@ const Header = () => {
                   {" "}
                   <a
                     href="#"
-                    className="text-sm text-secondaryFontColor font-DMsans font-normal"
+                    className="text-sm text-secondaryFontColor font-DMsans font-normal  "
                   >
                     Contacts
                   </a>
@@ -56,7 +56,7 @@ const Header = () => {
                 <li>
                   <a
                     href="#"
-                    className="text-sm text-secondaryFontColor font-DMsans font-normal"
+                    className="text-sm text-secondaryFontColor font-DMsans font-normal "
                   >
                     Journal
                   </a>
