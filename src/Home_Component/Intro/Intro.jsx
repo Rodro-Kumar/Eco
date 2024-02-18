@@ -43,16 +43,16 @@ const Intro = () => {
     <>
       <div>
         <Slider {...settings}>
-          <div>
+          <div className="cursor-pointer">
             <img src={slider1} alt={slider1} />
           </div>
-          <div>
+          <div className="cursor-pointer">
             <img src={slider1} alt={slider1} />
           </div>
-          <div>
+          <div className="cursor-pointer">
             <img src={slider1} alt={slider1} />
           </div>
-          <div>
+          <div className="cursor-pointer">
             <img src={slider1} alt={slider1} />
           </div>
         </Slider>
