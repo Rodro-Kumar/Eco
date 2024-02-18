@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primaryFontColor: #262626;
+  --secondaryFontColor: #767676;
+  --thirdFontCOlor: #6d6d6d;
+  --secondaryBgColor: #6d6d6d;
+  --primaryBgColor: #ffffff;
+  --DMsans: "DM Sans", sans-serif;
+}
+
+@layer base {
+  @import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100;9..40,200;9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900;9..40,1000&display=swap");
+
+  body {
+    background-color: #fff;
+  }
+
+  * {
+    @apply m-0 p-0 outline-none box-border;
+  }
+  a {
+    @apply no-underline;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  div,
+  img,
+  a,
+  li,
+  ol,
+  ul {
+    @apply p-0 m-0;
+  }
+  li,
+  ol,
+  ul {
+    @apply list-none;
+  }
+  img {
+    @apply align-middle;
+  }
+}
+
+@layer components {
+  .list ul li a {
+    transition: all linear 0.1s;
+    -webkit-transition: all linear 0.1s;
+    -moz-transition: all linear 0.1s;
+    -ms-transition: all linear 0.1s;
+    -o-transition: all linear 0.1s;
+  }
+  .list ul li a:hover {
+    color: var(--primaryFontColor);
+    font-weight: 700;
+  }
+
+  .intro .h1,
+  .p {
+    text-shadow: 1px 4px 4px rgba(0, 0, 0, 0.4);
+  }
+}
+
+.slick-dots ul .slick-active {
+  border-right: 4px solid black !important;
+  opacity: 1;
+  font-weight: 400;
+  transition: all linear 0.3s;
+  -webkit-transition: all linear 0.3s;
+  -moz-transition: all linear 0.3s;
+  -ms-transition: all linear 0.3s;
+  -o-transition: all linear 0.3s;
+}
+
+.slick-dots ul li div {
+  font-weight: 400;
+}
+
+.slick-dots ul li {
+  font-family: var(--DMsans);
+  opacity: 0;
+}
