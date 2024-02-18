@@ -13,30 +13,34 @@ const Ads = () => {
           <div className="py-40 flex gap-x-10">
             <div className="relative">
               <img src={phoneAds} alt={phoneAds} />
-              <div className="absolute bottom-[72px] left-16">
-                <h3 className="text-primaryFontColor font-DMsans font-bold text-4xl pb-9">
-                  Phones Sale
-                </h3>
-                <p className="font-normal text-base font-DMsans text-[#262626b0] pb-12">
-                  Up to
-                  <span
-                    className="text-[40px] font-DMsans font-bold text-primaryFontColor align-middle px-2
-                  "
-                  >
-                    30%
-                  </span>
-                  sale for all phones!
-                </p>
-                <Button></Button>
-              </div>
+              <Overlay
+                className={"absolute top-0"}
+                AdsHeading={"Phones Sale"}
+                Discout={"30%"}
+                DiscooutRightText={"sale for all phones!"}
+                btnTitle={"Shop Now"}
+              />
             </div>
             <div className="gap-y-8 flex flex-col">
               <div className="relative">
                 <img src={clockImg} alt={clockImg} />
-                <Overlay className={"absolute top-0"} />
+                <Overlay
+                  className={"absolute top-0"}
+                  AdsHeading={"Electronics Sale"}
+                  Discout={"70%"}
+                  DiscooutRightText={"sale for all electronics!"}
+                  btnTitle={"Shop Now"}
+                />
               </div>
-              <div>
+              <div className="relative">
                 <img src={furnitureImg} alt={furnitureImg} />
+                <Overlay
+                  className={"absolute top-0"}
+                  AdsHeading={"Furniture Offer"}
+                  Discout={"50%"}
+                  DiscooutRightText={"sale for all furniture items!"}
+                  btnTitle={"Shop Now"}
+                />
               </div>
             </div>
           </div>

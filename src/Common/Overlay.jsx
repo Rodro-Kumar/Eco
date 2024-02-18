@@ -1,7 +1,13 @@
 import React from "react";
 import Button from "./Button";
 
-const Overlay = ({ className, DiscooutRightText, Discout, AdsHeading }) => {
+const Overlay = ({
+  className,
+  DiscooutRightText,
+  Discout,
+  AdsHeading,
+  btnTitle,
+}) => {
   return (
     <>
       <div className={className}>
@@ -10,12 +16,12 @@ const Overlay = ({ className, DiscooutRightText, Discout, AdsHeading }) => {
         </h3>
         <p className="text-base font-DMsans font-normal text-[#262626c4] pb-12">
           Up to
-          <span className="text-[40px] font-bold text-primaryFontColor px-2">
+          <span className="text-[40px] font-bold text-primaryFontColor px-2 align-middle">
             {Discout ? Discout : "30%"}
           </span>
           {DiscooutRightText ? DiscooutRightText : "sale for all phones!"}
         </p>
-        <Button></Button>
+        <Button>{btnTitle ? btnTitle : "Shop Now"}</Button>
       </div>
     </>
   );
