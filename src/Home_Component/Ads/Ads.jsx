@@ -3,6 +3,7 @@ import phoneAds from "../../assets/sale.png";
 import clockImg from "../../assets/clock.png";
 import furnitureImg from "../../assets/furniture.png";
 import Button from "../../Common/Button";
+import Overlay from "../../Common/Overlay";
 
 const Ads = () => {
   return (
@@ -30,8 +31,9 @@ const Ads = () => {
               </div>
             </div>
             <div className="gap-y-8 flex flex-col">
-              <div>
+              <div className="relative">
                 <img src={clockImg} alt={clockImg} />
+                <Overlay className={"absolute top-0"} />
               </div>
               <div>
                 <img src={furnitureImg} alt={furnitureImg} />
