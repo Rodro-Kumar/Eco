@@ -14,7 +14,7 @@ const Ads = () => {
             <div className="relative">
               <img src={phoneAds} alt={phoneAds} />
               <Overlay
-                className={"absolute top-0"}
+                className={"absolute bottom-[72px] left-16"}
                 AdsHeading={"Phones Sale"}
                 Discout={"30%"}
                 DiscooutRightText={"sale for all phones!"}
