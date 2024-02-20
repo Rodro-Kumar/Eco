@@ -41,7 +41,7 @@ const Intro = () => {
   };
   return (
     <>
-      <div>
+      <div className="bg-[#f5f7f9]">
         <Slider {...settings}>
           <div className="cursor-pointer">
             <img src={slider1} alt={slider1} />

@@ -70,6 +70,61 @@
   .card:hover .overlay {
     bottom: 0;
   }
+
+  .footer ul li {
+    color: var(--primaryFontColor);
+    font-size: 16px;
+    font-family: var(--DMsans);
+    font-weight: 700;
+    padding-bottom: 16px;
+  }
+
+  .footer ul li a {
+    color: var(--thirdFontCOlor);
+    font-size: 14px;
+    font-family: var(--DMsans);
+    font-weight: 400;
+    padding-bottom: 6px;
+    transition: all linear 0.1s;
+    -webkit-transition: all linear 0.1s;
+    -moz-transition: all linear 0.1s;
+    -ms-transition: all linear 0.1s;
+    -o-transition: all linear 0.1s;
+    display: inline-block;
+  }
+
+  .footer ul li a:hover {
+    color: #262626;
+    text-decoration: underline;
+  }
+
+  .footer .icon a:nth-child(1):hover {
+    transform: translateY(-5px);
+    background-color: #316ff6;
+    color: #fff;
+    -webkit-transform: translateY(-5px);
+    -moz-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    -o-transform: translateY(-5px);
+  }
+  .footer .icon a:nth-child(2):hover {
+    transform: translateY(-5px);
+    background-color: #0077b5;
+    color: #fff;
+    -webkit-transform: translateY(-5px);
+    -moz-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    -o-transform: translateY(-5px);
+  }
+  .footer .icon a:nth-child(3):hover {
+    transform: translateY(-5px);
+    background-color: #c13581;
+    color: #fff;
+    -webkit-transform: translateY(-5px);
+    -moz-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    -o-transform: translateY(-5px);
+  }
 }
 
 .slick-dots ul .slick-active {

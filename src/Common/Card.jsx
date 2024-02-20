@@ -1,5 +1,5 @@
 import React from "react";
-import clock from "../assets/productClock.png";
+import product1 from "../assets/product1.png";
 import Button from "./Button";
 import { FaHeart } from "react-icons/fa";
 import { TbReload } from "react-icons/tb";
@@ -16,9 +16,9 @@ const Card = ({
     <>
       <div className="card cursor-pointer inline-block ">
         <div className="relative overflow-hidden">
-          <img src={productImg ? productImg : clock} alt={productImg} />
+          <img src={productImg ? productImg : product1} alt={productImg} />
           <div className="absolute top-5 left-5">
-            <Button className={"py-2 px-8"}>{tag ? tag : "New"}</Button>
+            <Button className={"py-[6px] px-6"}>{tag ? tag : "New"}</Button>
           </div>
           <div className="bg-white absolute -bottom-36 w-full transition-all overlay">
             <div className="flex flex-col items-end py-6 pr-7 gap-y-5">

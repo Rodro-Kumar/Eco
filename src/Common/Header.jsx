@@ -17,11 +17,11 @@ const Header = () => {
               <img src={logo} alt={logo} />
             </div>
             <div className="list m-auto">
-              <ul className="flex gap-x-10 ">
+              <ul className="flex gap-x-10">
                 <li>
                   <a
                     href="#"
-                    className="text-sm text-secondaryFontColor font-DMsans font-normal "
+                    className="text-sm text-secondaryFontColor font-DMsans font-normal"
                   >
                     Home
                   </a>
@@ -63,7 +63,6 @@ const Header = () => {
                 </li>
               </ul>
             </div>
-            {/* <div></div> */}
           </div>
         </div>
         {/* =========== Bottom =========== */}
