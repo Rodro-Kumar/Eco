@@ -1,68 +1,47 @@
 import React from "react";
-import product1 from "../assets/product1.png";
-import Button from "./Button";
+import productImg from "../assets/product2.png";
 import { FaHeart } from "react-icons/fa";
-import { TbReload } from "react-icons/tb";
-import { BsCartDashFill } from "react-icons/bs";
 
-const Card = ({
-  productImg,
-  tag,
-  productTitle,
-  productPrice,
-  productCategotyTitle,
-}) => {
+const Card = ({ colorVariant, badge, img }) => {
   return (
     <>
-      <div className="card cursor-pointer inline-block ">
-        <div className="relative overflow-hidden">
-          <img src={productImg ? productImg : product1} alt={productImg} />
-          <div className="absolute top-5 left-5">
-            <Button className={"py-[6px] px-6"}>{tag ? tag : "New"}</Button>
-          </div>
-          <div className="bg-white absolute -bottom-36 w-full transition-all overlay">
-            <div className="flex flex-col items-end py-6 pr-7 gap-y-5">
-              <div>
-                <a href="#" className="wish-list wish flex items-center">
-                  <p
-                    className="text-base font-DMsans font-normal text-secondaryFontColor pr-[15px] hover:text-primaryFontColor hover:font-bold transition-all
-                  "
-                  >
-                    Add to Wish List
-                  </p>
-                  <FaHeart className="text-xl" />
-                </a>
-              </div>
-              <div>
-                <a href="#" className="compare flex items-center">
-                  <p className="text-base font-DMsans font-normal text-secondaryFontColor pr-[15px] hover:text-primaryFontColor hover:font-bold transition-all">
-                    Compare
-                  </p>
-                  <TbReload className="text-xl" />
-                </a>
-              </div>
-              <div>
-                <a href="#" className="cart flex items-center">
-                  <p className="text-base font-DMsans font-normal text-secondaryFontColor pr-[15px] hover:text-primaryFontColor hover:font-bold transition-all">
-                    Add to Cart
-                  </p>
-                  <BsCartDashFill className="text-xl" />
-                </a>
-              </div>
+      <div className="cursor-pointer h-[371px] w-[90%]">
+        <div className="group relative overflow-hidden">
+          <div className="absolute top-5 left-5 text-black">{badge}</div>
+
+          <img src={img ? img : productImg} alt={img} className="" />
+
+          {/* =================Overlay================= */}
+
+          <div className="py-6 px-7 flex flex-col items-end absolute -bottom-36 left-0 bg-white w-full gap-y-5 group-hover:bottom-0 transition-all">
+            <div className="flex items-center gap-x-4">
+              <h5 className="text-[#767676] font-normal hover:text-[#262626] hover:font-bold transition-all">
+                Add to List
+              </h5>
+              <FaHeart />
+            </div>
+            <div className="flex items-center gap-x-4">
+              <h5 className="text-[#767676] font-normal hover:text-[#262626] hover:font-bold transition-all">
+                Add to List
+              </h5>
+              <FaHeart />
+            </div>
+            <div className="flex items-center gap-x-4">
+              <h5 className="text-[#767676] font-normal hover:text-[#262626] hover:font-bold transition-all">
+                Add to List
+              </h5>
+              <FaHeart />
             </div>
           </div>
+
+          {/* =================Overlay================= */}
         </div>
+
         <div className="flex justify-between items-center pt-6">
-          <p className="text-xl font-DMsans font-bold text-primaryFontColor">
-            {productTitle ? productTitle : "Basic Crew Neck Tee"}
-          </p>
-          <p className="text-base font-normal font-DMsans text-secondaryFontColor">
-            {productPrice ? productPrice : "$44.00"}
-          </p>
+          <h3>Basic Crew Neck Tee</h3>
+          <p>$44.00</p>
         </div>
-        <p className="text-base font-DMsans font-normal text-secondaryFontColor pt-3">
-          {productCategotyTitle ? productCategotyTitle : "Black"}
-        </p>
+        {colorVariant && <span>Black</span>}
       </div>
     </>
   );
