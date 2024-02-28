@@ -1,14 +1,9 @@
 import React, { useState } from "react";
+import Slider from "react-slick";
 import Card from "../../Common/Card";
-// import Flex from "../../Common/Flex";
-// import product1 from "../../assets/product1.png";
-// import product2 from "../../assets/product2.png";
-// import product3 from "../../assets/product3.png";
-// import product4 from "../../assets/product4.png";
+import Button from "../../Common/Button";
 import NewArrivalData from "../../../NewArrivalData/ArrivalData";
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
-
-import Slider from "react-slick";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -49,7 +44,7 @@ function SamplePrevArrow(props) {
         height: "60px",
         top: "40%",
         transform: "translateY(-40%)",
-        right: "32px",
+        right: "15px",
         position: "absolute",
         zIndex: "1",
         backgroundColor: "#979797",
@@ -69,7 +64,7 @@ const settings = {
   arrows: true,
   infinite: true,
   slidesToShow: 4,
-  slidesToScroll: 3,
+  slidesToScroll: 4,
   nextArrow: <SampleNextArrow />,
   prevArrow: <SamplePrevArrow />,
 };
@@ -79,7 +74,7 @@ const Arrival = () => {
 
   return (
     <>
-      <div className="bg-sky-600">
+      <div className=" pb-32">
         <div className="container">
           <h4 className="text-[40px] font-DMsans font-bold text-primaryFontColor pb-12">
             New Arrivals
@@ -87,7 +82,17 @@ const Arrival = () => {
 
           <Slider {...settings}>
             {arrivalData?.map((item) => (
-              <Card img={item.productImg} />
+              <Card
+                img={item.productImg}
+                badge={
+                  item.badge ? (
+                    <Button className={"py-2 px-8"}>
+                      {item.productStatus}
+                    </Button>
+                  ) : null
+                }
+                colorVariant={item.color}
+              />
             ))}
           </Slider>
         </div>
