@@ -1,36 +1,41 @@
 import React from "react";
 import productImg from "../assets/product2.png";
-import { FaHeart } from "react-icons/fa";
+import { FaHeart, FaShoppingCart } from "react-icons/fa";
+import { TbReload } from "react-icons/tb";
 
 const Card = ({ colorVariant, badge, img }) => {
   return (
     <>
-      <div className="cursor-pointer h-[371px] w-[90%]">
+      <div className="cursor-pointer h-[375px] w-[95%]">
         <div className="group relative overflow-hidden">
           <div className="absolute top-5 left-5 text-black">{badge}</div>
 
-          <img src={img ? img : productImg} alt={img} className="" />
+          <img
+            src={img ? img : productImg}
+            alt={img}
+            className="object-cover w-full h-full"
+          />
 
           {/* =================Overlay================= */}
 
           <div className="py-6 px-7 flex flex-col items-end absolute -bottom-36 left-0 bg-white w-full gap-y-5 group-hover:bottom-0 transition-all">
             <div className="flex items-center gap-x-4">
-              <h5 className="text-[#767676] font-normal hover:text-[#262626] hover:font-bold transition-all">
+              <h5 className="text-[#767676] font-DMsans hover:text-[#262626] hover:font-bold transition-all">
                 Add to List
               </h5>
               <FaHeart />
             </div>
             <div className="flex items-center gap-x-4">
               <h5 className="text-[#767676] font-normal hover:text-[#262626] hover:font-bold transition-all">
-                Add to List
+                Compare
               </h5>
-              <FaHeart />
+              <TbReload />
             </div>
             <div className="flex items-center gap-x-4">
               <h5 className="text-[#767676] font-normal hover:text-[#262626] hover:font-bold transition-all">
-                Add to List
+                Add to Cart
               </h5>
-              <FaHeart />
+              <FaShoppingCart />
             </div>
           </div>
 
@@ -38,10 +43,18 @@ const Card = ({ colorVariant, badge, img }) => {
         </div>
 
         <div className="flex justify-between items-center pt-6">
-          <h3>Basic Crew Neck Tee</h3>
-          <p>$44.00</p>
+          <h3 className="text-primaryFontColor font-DMsans font-semibold text-xl">
+            Basic Crew Neck Tee
+          </h3>
+          <p className="text-base font-DMsans font-normal text-thirdFontColor">
+            $44.00
+          </p>
         </div>
-        {colorVariant && <span>Black</span>}
+        {colorVariant && (
+          <span className="text-thirdFontColor font-DMsans font-normal text-base pt-3">
+            Black
+          </span>
+        )}
       </div>
     </>
   );
