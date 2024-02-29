@@ -1,22 +1,106 @@
-import React from "react";
-import Flex from "../../Common/Flex";
+import React, { useState } from "react";
+import Slider from "react-slick";
 import Card from "../../Common/Card";
-import product9 from "../../assets/product9.png";
-import product10 from "../../assets/product10.png";
-import product11 from "../../assets/product11.png";
-import product12 from "../../assets/product12.png";
+import Button from "../../Common/Button";
+import SpecialOfferData from "../../../SpecialOfferData/SpecialOffer";
+import { FaLongArrowAltRight, FaLongArrowAltLeft } from "react-icons/fa";
+
+// Next Arrow function
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        display: "block",
+        background: "#979797",
+        width: "60px",
+        height: "60px",
+        position: "absolute",
+        top: "40%",
+        transform: "translateY(-40%)",
+        right: "33px",
+        borderRadius: "50%",
+      }}
+      onClick={onClick}
+    >
+      <div className="flex justify-center items-center h-full rounded-full hover:bg-[#b8b8b8] cursor-pointer">
+        <FaLongArrowAltRight className="text-lg text-white" />
+      </div>
+    </div>
+  );
+}
+
+// Pre Arrow function
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        display: "block",
+        background: "#979797",
+        width: "60px",
+        height: "60px",
+        position: "absolute",
+        top: "40%",
+        transform: "translateY(-40%)",
+        left: "0",
+        borderRadius: "50%",
+        zIndex: "1",
+      }}
+      onClick={onClick}
+    >
+      <div className="flex justify-center items-center h-full rounded-full hover:bg-[#b8b8b8] cursor-pointer">
+        <FaLongArrowAltLeft className="text-lg text-white" />
+      </div>
+    </div>
+  );
+}
+
+// Slider setting
+const settings = {
+  dots: false,
+  arrows: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 4,
+  slidesToScroll: 4,
+  nextArrow: <SampleNextArrow />,
+  prevArrow: <SamplePrevArrow />,
+};
 
 const SpecialOffer = () => {
+  const [OfferData, setOfferData] = useState(SpecialOfferData);
   return (
     <>
-      <div>
+      <div className="pb-24">
         <div className="container">
-          <Flex className={"gap-x-9 pb-28"}>
-            <Card productImg={product9} />
-            <Card productImg={product10} />
-            <Card productImg={product11} />
-            <Card productImg={product12} />
-          </Flex>
+          <div>
+            <h3 className="text-primaryFontColor text-[40px] font-DMsans font-bold pb-12">
+              Special Offers
+            </h3>
+          </div>
+
+          <Slider {...settings}>
+            {OfferData?.map((item) => (
+              <Card
+                img={item.productImg}
+                colorVariant={item.color}
+                badge={
+                  item.badge ? (
+                    <Button className={"py-2 px-7"}>
+                      {item.productStatus}
+                    </Button>
+                  ) : null
+                }
+                productTitle={item.title}
+                price={item.price}
+              />
+            ))}
+          </Slider>
         </div>
       </div>
     </>
