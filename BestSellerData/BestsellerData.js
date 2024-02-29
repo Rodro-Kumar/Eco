@@ -36,7 +36,7 @@ const BestSellerData = [
     title: "Basic Crew Neck Tee",
     price: "$50.00",
     badge: true,
-    color: false,
+    color: true,
     productImg: product8,
     productStatus: "75%",
   },
