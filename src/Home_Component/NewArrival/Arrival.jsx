@@ -44,7 +44,7 @@ function SamplePrevArrow(props) {
         height: "60px",
         top: "40%",
         transform: "translateY(-40%)",
-        right: "15px",
+        right: "33px",
         position: "absolute",
         zIndex: "1",
         backgroundColor: "#979797",
@@ -86,7 +86,7 @@ const Arrival = () => {
                 img={item.productImg}
                 badge={
                   item.badge ? (
-                    <Button className={"py-2 px-8"}>
+                    <Button className={"py-[7px] px-8"}>
                       {item.productStatus}
                     </Button>
                   ) : null
