@@ -5,6 +5,7 @@ import Button from "../../Common/Button";
 import NewArrivalData from "../../../NewArrivalData/ArrivalData";
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
 
+// Next Arrow function
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
@@ -13,10 +14,10 @@ function SampleNextArrow(props) {
       style={{
         ...style,
         display: "block",
-        background: "red",
         width: "60px",
         height: "60px",
         position: "absolute",
+        right: "33px",
         top: "40%",
         transform: "translateY(-40%)",
         backgroundColor: "#979797",
@@ -25,12 +26,13 @@ function SampleNextArrow(props) {
       onClick={onClick}
     >
       <div className="flex justify-center items-center h-full cursor-pointer hover:bg-[#b4b4b4] rounded-full">
-        <FaLongArrowAltLeft className="text-base text-primaryBgColor" />
+        <FaLongArrowAltRight className="text-base text-primaryBgColor" />
       </div>
     </div>
   );
 }
 
+// Pre Arrow function
 function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
   return (
@@ -44,7 +46,7 @@ function SamplePrevArrow(props) {
         height: "60px",
         top: "40%",
         transform: "translateY(-40%)",
-        right: "33px",
+        left: "0",
         position: "absolute",
         zIndex: "1",
         backgroundColor: "#979797",
@@ -53,11 +55,13 @@ function SamplePrevArrow(props) {
       onClick={onClick}
     >
       <div className="flex justify-center items-center h-full cursor-pointer hover:bg-[#b4b4b4] rounded-full">
-        <FaLongArrowAltRight className="text-base text-primaryBgColor" />
+        <FaLongArrowAltLeft className="text-base text-primaryBgColor" />
       </div>
     </div>
   );
 }
+
+// Slider setting
 
 const settings = {
   dots: false,
@@ -92,6 +96,8 @@ const Arrival = () => {
                   ) : null
                 }
                 colorVariant={item.color}
+                productTitle={item.title}
+                price={item.price}
               />
             ))}
           </Slider>
