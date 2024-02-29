@@ -6,15 +6,11 @@ import { TbReload } from "react-icons/tb";
 const Card = ({ colorVariant, badge, img }) => {
   return (
     <>
-      <div className="cursor-pointer h-[375px] w-[95%]">
+      <div className="cursor-pointer h-[375px] w-[90%]">
         <div className="group relative overflow-hidden">
           <div className="absolute top-5 left-5 text-black">{badge}</div>
 
-          <img
-            src={img ? img : productImg}
-            alt={img}
-            className="object-cover w-full h-full"
-          />
+          <img src={img ? img : productImg} alt={img} />
 
           {/* =================Overlay================= */}
 
