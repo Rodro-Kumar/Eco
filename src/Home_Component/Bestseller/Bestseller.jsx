@@ -5,6 +5,7 @@ import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
 import Slider from "react-slick";
 import BestSellerData from "../../../BestSellerData/BestsellerData";
 
+// Next Arrow function
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
@@ -31,6 +32,7 @@ function SampleNextArrow(props) {
   );
 }
 
+// Pre Arrow function
 function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
   return (
@@ -57,6 +59,8 @@ function SamplePrevArrow(props) {
     </div>
   );
 }
+
+// Slider setting
 
 const settings = {
   dots: false,
@@ -91,6 +95,8 @@ const Bestseller = () => {
                     ) : null
                   }
                   colorVariant={item.color}
+                  productTitle={item.title}
+                  price={item.price}
                 />
               ))}
             </Slider>
