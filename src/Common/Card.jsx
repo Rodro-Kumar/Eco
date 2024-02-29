@@ -3,10 +3,10 @@ import productImg from "../assets/product2.png";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import { TbReload } from "react-icons/tb";
 
-const Card = ({ colorVariant, badge, img }) => {
+const Card = ({ colorVariant, badge, img, productTitle, price }) => {
   return (
     <>
-      <div className="cursor-pointer h-[375px] w-[90%]">
+      <div className="cursor-pointer  w-[90%]">
         <div className="group relative overflow-hidden">
           <div className="absolute top-5 left-5 text-black">{badge}</div>
 
@@ -40,10 +40,10 @@ const Card = ({ colorVariant, badge, img }) => {
 
         <div className="flex justify-between items-center pt-6">
           <h3 className="text-primaryFontColor font-DMsans font-semibold text-xl">
-            Basic Crew Neck Tee
+            {productTitle ? productTitle : "Basic Crew Neck Tee"}
           </h3>
           <p className="text-base font-DMsans font-normal text-thirdFontColor">
-            $44.00
+            {price ? price : "$44.00"}
           </p>
         </div>
         {colorVariant && (
