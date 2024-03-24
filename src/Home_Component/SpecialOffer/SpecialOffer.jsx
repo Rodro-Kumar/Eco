@@ -91,7 +91,7 @@ const SpecialOffer = () => {
                 colorVariant={item.color}
                 badge={
                   item.badge ? (
-                    <Button className={"py-2 px-7"}>
+                    <Button className={"py-[7px] px-8"}>
                       {item.productStatus}
                     </Button>
                   ) : null
