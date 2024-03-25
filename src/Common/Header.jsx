@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { HiMenuAlt4 } from "react-icons/hi";
 import { FaSearch } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
-import { FaCaretDown } from "react-icons/fa";
+import { FaCaretDown, FaCaretUp } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import { RiMenuFoldFill } from "react-icons/ri";
 import { RxCross2 } from "react-icons/rx";
@@ -11,16 +11,41 @@ import { HiShoppingCart } from "react-icons/hi";
 import { BiDetail } from "react-icons/bi";
 import { MdContactSupport } from "react-icons/md";
 import { BsJournalBookmarkFill } from "react-icons/bs";
+import { BiLogOutCircle } from "react-icons/bi";
+
 import cartImg from "../assets/product1.png";
 import Button from "../Common/Button";
-
 import logo from "../assets/logo.png";
 
 const Header = () => {
   const [isshow, setisshow] = useState(false);
+  const [showCategory, setshowCategory] = useState(false);
+  const [showCart, setshowCart] = useState(false);
+  const [unshowCart, setunshowCart] = useState(false);
+  const [showuser, setshowuser] = useState(false);
+
+  // menubar functionality
 
   const HandleMenuBar = () => {
     setisshow(!isshow);
+  };
+
+  // categary functionality
+
+  const HandleCategory = () => {
+    setshowCategory(!showCategory);
+  };
+
+  // cart functionality
+
+  const HandleCart = () => {
+    setshowCart(!showCart);
+  };
+
+  // user functionality
+
+  const HandleUser = () => {
+    setshowuser(!showuser);
   };
 
   return (
@@ -102,14 +127,22 @@ const Header = () => {
           <div className="container">
             <div className="py-6 flex items-center justify-between px-4 sm:px-0 relative">
               <div className="left">
-                <div className="flex items-center gap-x-[10px] cursor-pointer">
+                <div
+                  className="flex items-center gap-x-[10px] cursor-pointer"
+                  onClick={HandleCategory}
+                >
                   <HiMenuAlt4 className="text-2xl sm:text-xl" />
                   <p className="text-sm text-primaryFontColor font-normal font-DMsans hidden sm:block">
                     Shop by Category
                   </p>
                 </div>
               </div>
-              <div className="bg-primaryFontColor text-[#fff] text-opacity-70 flex flex-col w-[263px] absolute top-[102px] left-0  z-10">
+
+              <div
+                className={`bg-primaryFontColor text-[#fff] scale-0 text-opacity-70 flex flex-col w-[263px] absolute top-[102px] left-0  z-10 ${
+                  showCategory && "scale-100 transition-all"
+                }`}
+              >
                 {[
                   "Accesories",
                   "Furniture",
@@ -143,28 +176,42 @@ const Header = () => {
               </div>
               <div className="right">
                 <div className="flex items-center gap-x-3 sm:gap-x-10">
-                  <div className="group flex items-center cursor-pointer text-lg">
+                  <div
+                    className="group flex items-center cursor-pointer text-lg"
+                    onClick={HandleUser}
+                  >
                     <FaUser title="User" />
-                    <FaCaretDown />
+
+                    {showuser ? <FaCaretUp /> : <FaCaretDown />}
                   </div>
-                  <div className="absolute top-[104px] right-[59px] z-10 flex flex-col items-center w-[200px] hidden">
-                    <a
-                      href="#"
-                      className="py-4 w-full text-white bg-primaryFontColor font-DMsans font-bold text-sm text-center"
-                    >
-                      My Account
-                    </a>
-                    <a
-                      href=""
-                      className="py-4  w-full bg-white text-black font-normal text-sm text-center"
-                    >
-                      Log Out
-                    </a>
-                  </div>
-                  <div className="cursor-pointer">
+                  {showuser && (
+                    <div className="z-20 absolute top-[104px] right-[59px]  flex flex-col items-center w-[200px]">
+                      <a
+                        href="#"
+                        className="cursor-pointer py-4 w-full text-white bg-primaryFontColor font-DMsans font-bold text-sm text-center hover:bg-[#383838]"
+                      >
+                        My Account
+                      </a>
+
+                      <a
+                        href="#"
+                        className="group logout cursor-pointer py-4 flex gap-x-2 items-center justify-center w-full bg-white text-black font-semibold text-sm hover:bg-[#f0f0f0] transition-all"
+                      >
+                        Log Out
+                        <BiLogOutCircle className="scale-150 group-hover:text-red-400" />
+                      </a>
+                    </div>
+                  )}
+
+                  <div className="cursor-pointer" onClick={HandleCart}>
                     <FaShoppingCart className="text-lg" title="Shoping" />
                   </div>
-                  <div className="bg-white absolute top-[104px] right-0 z-10">
+
+                  <div
+                    className={`cartOverlay bg-white opacity-0 absolute top-[104px] right-0 z-10 ${
+                      showCart === true ? "opacity-15" : null
+                    }`}
+                  >
                     <div className="flex justify-between items-center bg-[#F5F5F3] px-5 py-5">
                       <div className="h-[80px] w-[80px]">
                         <img src={cartImg} alt={cartImg} />
@@ -191,11 +238,11 @@ const Header = () => {
                         $44.00
                       </p>
                     </div>
-                    <div className="flex items-center justify-between px-5 pb-5">
+                    <div className="flex items-center gap-x-5 px-5 pb-5 ">
                       <div>
                         <Button
                           className={
-                            "py-4 px-10 text-white hover:border-2 hover:border-[#000] hover:text-black hover:bg-white transition-all"
+                            "cartBtn py-4 px-10 text-white hover:outline-dashed hover:outline-2 hover:outline-black hover:border-[#000] whitespace-nowrap"
                           }
                         >
                           View Cart
@@ -204,7 +251,7 @@ const Header = () => {
                       <div>
                         <Button
                           className={
-                            "py-4 px-10 text-white hover:border-2 hover:border-[#000] hover:text-black hover:bg-white transition-all"
+                            "cartBtn py-4 px-10 text-white hover:outline-dashed hover:outline-2 hover:outline-black"
                           }
                         >
                           Checkout
