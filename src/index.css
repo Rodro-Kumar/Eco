@@ -125,6 +125,16 @@
     -ms-transform: translateY(-5px);
     -o-transform: translateY(-5px);
   }
+
+  .cartBtn:hover {
+    color: black;
+    background: transparent;
+    transition: all linear 0.1s;
+    -webkit-transition: all linear 0.1s;
+    -moz-transition: all linear 0.1s;
+    -ms-transition: all linear 0.1s;
+    -o-transition: all linear 0.1s;
+  }
 }
 
 .slick-dots ul .slick-active {
