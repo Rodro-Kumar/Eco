@@ -12,16 +12,16 @@ import { BiDetail } from "react-icons/bi";
 import { MdContactSupport } from "react-icons/md";
 import { BsJournalBookmarkFill } from "react-icons/bs";
 import { BiLogOutCircle } from "react-icons/bi";
-
 import cartImg from "../assets/product1.png";
 import Button from "../Common/Button";
 import logo from "../assets/logo.png";
+import Tooltip from "./Tooltip";
 
 const Header = () => {
   const [isshow, setisshow] = useState(false);
   const [showCategory, setshowCategory] = useState(false);
   const [showCart, setshowCart] = useState(false);
-  const [unshowCart, setunshowCart] = useState(false);
+  const [unshowCart, setunshowCart] = useState(true);
   const [showuser, setshowuser] = useState(false);
 
   // menubar functionality
@@ -40,6 +40,11 @@ const Header = () => {
 
   const HandleCart = () => {
     setshowCart(!showCart);
+  };
+
+  const HandleCross = () => {
+    setunshowCart(!unshowCart);
+    console.log(unshowCart);
   };
 
   // user functionality
@@ -126,7 +131,7 @@ const Header = () => {
         <div className="bg-[#eeee3e]">
           <div className="container">
             <div className="py-6 flex items-center justify-between px-4 sm:px-0 relative">
-              <div className="left">
+              <div className="left relative group">
                 <div
                   className="flex items-center gap-x-[10px] cursor-pointer"
                   onClick={HandleCategory}
@@ -136,10 +141,14 @@ const Header = () => {
                     Shop by Category
                   </p>
                 </div>
+                <Tooltip
+                  TooltipTitle={"All category"}
+                  className={"top-[-40px]"}
+                />
               </div>
 
               <div
-                className={`bg-primaryFontColor text-[#fff] scale-0 text-opacity-70 flex flex-col w-[263px] absolute top-[102px] left-0  z-10 ${
+                className={`bg-primaryFontColor text-[#fff] scale-0 text-opacity-70 flex flex-col w-[263px] absolute top-[96px] sm:[102px] left-[50%] sm:left-0 sm:translate-x-0 -translate-x-[50%] z-10 ${
                   showCategory && "scale-100 transition-all"
                 }`}
               >
@@ -177,13 +186,14 @@ const Header = () => {
               <div className="right">
                 <div className="flex items-center gap-x-3 sm:gap-x-10">
                   <div
-                    className="group flex items-center cursor-pointer text-lg"
+                    className="group relative flex items-center cursor-pointer text-lg "
                     onClick={HandleUser}
                   >
                     <FaUser title="User" />
 
                     {showuser ? <FaCaretUp /> : <FaCaretDown />}
                   </div>
+
                   {showuser && (
                     <div className="z-20 absolute top-[104px] right-[59px]  flex flex-col items-center w-[200px]">
                       <a
@@ -203,62 +213,72 @@ const Header = () => {
                     </div>
                   )}
 
-                  <div className="cursor-pointer" onClick={HandleCart}>
+                  <div
+                    className="cursor-pointer relative group"
+                    onClick={HandleCart}
+                  >
                     <FaShoppingCart className="text-lg" title="Shoping" />
+                    <Tooltip
+                      TooltipTitle={"Shoping cart"}
+                      className={"whitespace-nowrap"}
+                    />
                   </div>
 
-                  <div
-                    className={`cartOverlay bg-white opacity-0 absolute top-[104px] right-0 z-10 ${
-                      showCart === true ? "opacity-15" : null
-                    }`}
-                  >
-                    <div className="flex justify-between items-center bg-[#F5F5F3] px-5 py-5">
-                      <div className="h-[80px] w-[80px]">
-                        <img src={cartImg} alt={cartImg} />
+                  {showCart === true && (
+                    <div
+                      className={`cartOverlay bg-white absolute top-[104px] left-[8px] sm:right-0 z-10 shadow-lg sm:shadow-none`}
+                    >
+                      <div className="flex justify-center sm:justify-between items-center bg-[#F5F5F3] px-5 py-5">
+                        <div className="h-[80px] w-[80px]">
+                          <img src={cartImg} alt={cartImg} />
+                        </div>
+                        <div className="flex items-center pl-5">
+                          <div>
+                            <h3 className="font-DMsans font-bold text-sm whitespace-nowrap">
+                              Black Smart Watch
+                            </h3>
+                            <p className="font-DMsans font-bold text-sm">
+                              $44.00
+                            </p>
+                          </div>
+                          <div
+                            className="ml-14 sm:ml-16 cursor-pointer hover:scale-150 transition-all "
+                            onClick={HandleCross}
+                          >
+                            <RxCross2 />
+                          </div>
+                        </div>
                       </div>
-                      <div className="flex items-center pl-5">
+                      <div className="flex items-center px-5 py-4 justify-center sm:justify-start">
+                        <p className="text-base font-DMsans font-normal text-secondaryFontColor">
+                          Subtotal:
+                        </p>
+                        <p className="text-base font-DMsans font-bold text-primaryFontColor pl-1">
+                          $44.00
+                        </p>
+                      </div>
+                      <div className="flex items-center gap-x-5 px-0 pb-5 sm:px-5 justify-center">
                         <div>
-                          <h3 className="font-DMsans font-bold text-sm whitespace-nowrap">
-                            Black Smart Watch
-                          </h3>
-                          <p className="font-DMsans font-bold text-sm">
-                            $44.00
-                          </p>
+                          <Button
+                            className={
+                              "cartBtn py-[14px] px-8 sm:py-4 sm:px-10 text-white hover:outline-dashed hover:outline-2 hover:outline-black hover:border-[#000] whitespace-nowrap"
+                            }
+                          >
+                            View Cart
+                          </Button>
                         </div>
-                        <div className="ml-16 cursor-pointer hover:scale-150 transition-all">
-                          <RxCross2 />
+                        <div>
+                          <Button
+                            className={
+                              "cartBtn py-[14px] px-8 sm:py-4 sm:px-10 text-white hover:outline-dashed hover:outline-2 hover:outline-black"
+                            }
+                          >
+                            Checkout
+                          </Button>
                         </div>
                       </div>
                     </div>
-                    <div className="flex items-center px-5 py-4">
-                      <p className="text-base font-DMsans font-normal text-secondaryFontColor">
-                        Subtotal:
-                      </p>
-                      <p className="text-base font-DMsans font-bold text-primaryFontColor pl-1">
-                        $44.00
-                      </p>
-                    </div>
-                    <div className="flex items-center gap-x-5 px-5 pb-5 ">
-                      <div>
-                        <Button
-                          className={
-                            "cartBtn py-4 px-10 text-white hover:outline-dashed hover:outline-2 hover:outline-black hover:border-[#000] whitespace-nowrap"
-                          }
-                        >
-                          View Cart
-                        </Button>
-                      </div>
-                      <div>
-                        <Button
-                          className={
-                            "cartBtn py-4 px-10 text-white hover:outline-dashed hover:outline-2 hover:outline-black"
-                          }
-                        >
-                          Checkout
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
+                  )}
                 </div>
               </div>
             </div>
