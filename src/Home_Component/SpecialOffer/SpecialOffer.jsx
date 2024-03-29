@@ -70,16 +70,43 @@ const settings = {
   slidesToScroll: 4,
   nextArrow: <SampleNextArrow />,
   prevArrow: <SamplePrevArrow />,
+
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        infinite: true,
+        dots: true,
+      },
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        initialSlide: 2,
+      },
+    },
+    {
+      breakpoint: 375,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+      },
+    },
+  ],
 };
 
 const SpecialOffer = () => {
   const [OfferData, setOfferData] = useState(SpecialOfferData);
   return (
     <>
-      <div className="pb-24">
+      <div className="pb-24 px-4 sm:px-0">
         <div className="container">
           <div>
-            <h3 className="text-primaryFontColor text-[40px] font-DMsans font-bold pb-12">
+            <h3 className="text-primaryFontColor text-[35px] sm:text-[40px] font-DMsans font-bold pb-12">
               Special Offers
             </h3>
           </div>
