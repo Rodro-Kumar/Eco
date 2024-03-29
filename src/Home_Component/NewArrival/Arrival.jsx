@@ -71,6 +71,44 @@ const settings = {
   slidesToScroll: 4,
   nextArrow: <SampleNextArrow />,
   prevArrow: <SamplePrevArrow />,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        infinite: true,
+        dots: true,
+      },
+    },
+
+    {
+      breakpoint: 700,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        dots: false,
+      },
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: false,
+      },
+    },
+    {
+      breakpoint: 575,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+
+        speed: 300,
+        dots: false,
+      },
+    },
+  ],
 };
 
 const Arrival = () => {
@@ -78,9 +116,9 @@ const Arrival = () => {
 
   return (
     <>
-      <div className=" pb-32">
+      <div className=" pb-32 px-4 sm:px-0">
         <div className="container">
-          <h4 className="text-[40px] font-DMsans font-bold text-primaryFontColor pb-12">
+          <h4 className="text-[35px] sm:text-[40px] font-DMsans font-bold text-primaryFontColor pb-12">
             New Arrivals
           </h4>
 
