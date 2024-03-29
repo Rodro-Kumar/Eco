@@ -7,13 +7,15 @@ import Overlay from "../../Common/Overlay";
 const Ads = () => {
   return (
     <>
-      <div>
+      <div className="px-4 sm:px-0">
         <div className="container">
-          <div className="py-40 flex gap-x-10">
-            <div className="relative">
+          <div className="py-[60px] flex flex-col sm:flex-row gap-x-10 sm:py-40">
+            <div className="relative mb-8 sm:mb-0">
               <img src={phoneAds} alt={phoneAds} />
               <Overlay
-                className={"absolute bottom-[72px] left-16"}
+                className={
+                  "absolute bottom-[51px] sm:bottom-[72px] left-10 sm:left-16 "
+                }
                 AdsHeading={"Phones Sale"}
                 Discout={"30%"}
                 DiscooutRightText={"sale for all phones!"}
@@ -22,9 +24,15 @@ const Ads = () => {
             </div>
             <div className="gap-y-8 flex flex-col">
               <div className="relative">
-                <img src={clockImg} alt={clockImg} />
+                <img
+                  src={clockImg}
+                  alt={clockImg}
+                  className="h-[250px] sm:h-full"
+                />
                 <Overlay
-                  className={"absolute top-1/2 -translate-y-1/2 left-[50px]"}
+                  className={
+                    "absolute top-1/2 -translate-y-1/2 left-[20px] sm:left-[50px]"
+                  }
                   AdsHeading={"Electronics Sale"}
                   Discout={"70%"}
                   DiscooutRightText={"sale for all electronics!"}
@@ -32,9 +40,15 @@ const Ads = () => {
                 />
               </div>
               <div className="relative">
-                <img src={furnitureImg} alt={furnitureImg} />
+                <img
+                  src={furnitureImg}
+                  alt={furnitureImg}
+                  className="h-[250px] sm:h-full"
+                />
                 <Overlay
-                  className={"absolute top-1/2 -translate-y-1/2 left-[50px]"}
+                  className={
+                    "absolute top-1/2 -translate-y-1/2 left-[20px] sm:left-[50px]"
+                  }
                   AdsHeading={"Furniture Offer"}
                   Discout={"50%"}
                   DiscooutRightText={"sale for all furniture items!"}
