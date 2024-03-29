@@ -16,6 +16,7 @@ import cartImg from "../assets/product1.png";
 import Button from "../Common/Button";
 import logo from "../assets/logo.png";
 import Tooltip from "./Tooltip";
+import { IoCaretDownSharp } from "react-icons/io5";
 
 const Header = () => {
   const [isshow, setisshow] = useState(false);
@@ -64,7 +65,9 @@ const Header = () => {
 
             <div
               className={`m-auto sm:block absolute top-[87px] sm:static ${
-                isshow ? "left-0 z-10 w-1/2 transition-all " : "left-[-100%]"
+                isshow
+                  ? "left-0 z-10 w-1/2 transition-all shadow-xl"
+                  : "left-[-100%] transition-opacity"
               }`}
             >
               <ul className="flex gap-x-10 py-7 pb-[558px] sm:pb-0 sm:py-0 flex-col sm:flex-row bg-[#ffffff] sm:bg-transparent rounded-tr-2xl">
@@ -116,6 +119,11 @@ const Header = () => {
                     <BsJournalBookmarkFill className="text-base ml-8 group-hover:text-black sm:hidden scale-0  group-hover:scale-105 transition-all" />
                   </a>
                 </li>
+                <img
+                  src={logo}
+                  alt={logo}
+                  className="w-12 ml-4 mt-16 sm:hidden"
+                />
               </ul>
             </div>
             <div className="cursor-pointer sm:hidden" onClick={HandleMenuBar}>
@@ -128,7 +136,7 @@ const Header = () => {
           </div>
         </div>
         {/* =========== Bottom =========== */}
-        <div className="bg-[#eeee3e]">
+        <div className="bg-[#F5F5F3]">
           <div className="container">
             <div className="py-6 flex items-center justify-between px-4 sm:px-0 relative">
               <div className="left relative group">
@@ -143,7 +151,7 @@ const Header = () => {
                 </div>
                 <Tooltip
                   TooltipTitle={"All category"}
-                  className={"top-[-40px]"}
+                  className={"top-[-40px] z-10 text-[10px] whitespace-nowrap"}
                 />
               </div>
 
@@ -220,13 +228,16 @@ const Header = () => {
                     <FaShoppingCart className="text-lg" title="Shoping" />
                     <Tooltip
                       TooltipTitle={"Shoping cart"}
-                      className={"whitespace-nowrap"}
+                      className={"whitespace-nowrap right-[-3px] sm:right-0"}
+                      DownArrow={
+                        <IoCaretDownSharp className="text-[#353535] text-[18px] left-10 absolute" />
+                      }
                     />
                   </div>
 
                   {showCart === true && (
                     <div
-                      className={`cartOverlay bg-white absolute top-[104px] left-[8px] sm:right-0 z-10 shadow-lg sm:shadow-none`}
+                      className={`cartOverlay bg-white absolute top-[104px] right-0 z-10 shadow-lg sm:shadow-none`}
                     >
                       <div className="flex justify-center sm:justify-between items-center bg-[#F5F5F3] px-5 py-5">
                         <div className="h-[80px] w-[80px]">
