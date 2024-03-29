@@ -8,33 +8,35 @@ const Footer = () => {
     <>
       <div className="py-14">
         <div className="container">
-          <div className="flex justify-between">
-            <FooterItem
-              title={"MENU"}
-              allitem={["Home", "Shop", "About", "Contact", "Journal"]}
-            />
-            <FooterItem
-              title={"SHOP"}
-              allitem={[
-                "Category",
-                "Category",
-                "Category",
-                "Category",
-                "Category",
-              ]}
-            />
-            <FooterItem
-              title={"HELP"}
-              allitem={[
-                "Privacy Policy",
-                "Terms & Conditions",
-                "Special E-shop",
-                "Shipping",
-                "Secure Payments",
-              ]}
-            />
+          <div className="flex  items-center justify-center flex-col sm:justify-between sm:flex-row">
+            <div className="flex justify-between gap-x-10 pb-8 sm:gap-x-36">
+              <FooterItem
+                title={"MENU"}
+                allitem={["Home", "Shop", "About", "Contact", "Journal"]}
+              />
+              <FooterItem
+                title={"SHOP"}
+                allitem={[
+                  "Category",
+                  "Category",
+                  "Category",
+                  "Category",
+                  "Category",
+                ]}
+              />
+              <FooterItem
+                title={"HELP"}
+                allitem={[
+                  "Privacy Policy",
+                  "Terms & Conditions",
+                  "Special E-shop",
+                  "Shipping",
+                  "Secure Payments",
+                ]}
+              />
+            </div>
 
-            <div>
+            <div className="pb-8 sm:pb-0">
               <div className="text-[#262626] font-DMsans font-bold text-lg">
                 <a href="tel:(052) 611-5711">(052) 611-5711</a>
               </div>
@@ -52,8 +54,8 @@ const Footer = () => {
               </picture>
             </div>
           </div>
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-x-4 pt-16">
+          <div className="flex flex-col px-4 items-center justify-center sm:flex-row sm:justify-between">
+            <div className="flex items-center gap-x-4 pt-10 sm:pt-0">
               <a
                 href="#"
                 className="h-10 w-10 rounded-full flex justify-center items-center hover:bg-[#316FF6] hover:text-white hover:-translate-y-1 transition-all"
@@ -74,7 +76,7 @@ const Footer = () => {
               </a>
             </div>
             <div>
-              <p className="text-[#6D6D6D] font-DMsans font-normal text-sm">
+              <p className="text-[#6D6D6D] font-DMsans font-normal text-sm text-center pt-2 sm:pt-0">
                 2020 Orebi Minimal eCommerce Figma Template by Adveits
               </p>
             </div>
