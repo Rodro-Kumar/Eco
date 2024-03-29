@@ -2,7 +2,7 @@ import React from "react";
 import { IoCaretDownSharp } from "react-icons/io5";
 import { IoMdArrowDropup } from "react-icons/io";
 
-const Tooltip = ({ TooltipTitle, className }) => {
+const Tooltip = ({ TooltipTitle, className, DownArrow }) => {
   return (
     <>
       <div
@@ -10,7 +10,11 @@ const Tooltip = ({ TooltipTitle, className }) => {
       >
         {TooltipTitle ? TooltipTitle : "Tooltip"}
         <div className="absolute top-[20px]">
-          <IoCaretDownSharp className=" text-[#353535] text-lg" />
+          {DownArrow ? (
+            DownArrow
+          ) : (
+            <IoCaretDownSharp className="text-[#353535] text-lg" />
+          )}
         </div>
         <div className="absolute bottom-[10px] hidden">
           <IoMdArrowDropup className="text-[#353535] text-3xl" />
