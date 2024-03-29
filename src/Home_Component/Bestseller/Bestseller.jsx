@@ -70,16 +70,42 @@ const settings = {
   slidesToScroll: 4,
   nextArrow: <SampleNextArrow />,
   prevArrow: <SamplePrevArrow />,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        infinite: true,
+        dots: true,
+      },
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        initialSlide: 2,
+      },
+    },
+    {
+      breakpoint: 375,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+  ],
 };
 
 const Bestseller = () => {
   const [ourBestSellerData, setourBestSellerData] = useState(BestSellerData);
   return (
     <>
-      <div>
+      <div className="px-4 sm:px-0">
         <div className="container">
-          <div className="pb-32">
-            <h4 className="text-[40px] font-DMsans font-bold text-primaryFontColor pb-12">
+          <div className="pb-24 sm:pb-32">
+            <h4 className="text-[35px] sm:text-[40px] font-DMsans font-bold text-primaryFontColor pb-12">
               Our Bestsellers
             </h4>
             <Slider {...settings}>
