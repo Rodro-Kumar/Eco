@@ -37,7 +37,7 @@ const Footer = () => {
             </div>
 
             <div className="pb-8 sm:pb-0">
-              <div className="text-[#262626] font-DMsans font-bold text-lg">
+              <div className="text-[#262626] font-DMsans font-bold text-lg text-left">
                 <a href="tel:(052) 611-5711">(052) 611-5711</a>
               </div>
               <div className="text-[#262626] font-DMsans font-bold text-lg pb-3">
