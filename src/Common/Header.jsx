@@ -17,12 +17,13 @@ import Button from "../Common/Button";
 import logo from "../assets/logo.png";
 import Tooltip from "./Tooltip";
 import { IoCaretDownSharp } from "react-icons/io5";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
   const [isshow, setisshow] = useState(false);
   const [showCategory, setshowCategory] = useState(false);
   const [showCart, setshowCart] = useState(false);
-  const [unshowCart, setunshowCart] = useState(true);
+  const [unshowCart, setunshowCart] = useState(false);
   const [showuser, setshowuser] = useState(false);
 
   // menubar functionality
@@ -45,7 +46,6 @@ const Header = () => {
 
   const HandleCross = () => {
     setunshowCart(!unshowCart);
-    console.log(unshowCart);
   };
 
   // user functionality
@@ -72,52 +72,52 @@ const Header = () => {
             >
               <ul className="flex gap-x-10 py-7 pb-[558px] sm:pb-0 sm:py-0 flex-col sm:flex-row bg-[#ffffff] sm:bg-transparent rounded-tr-2xl">
                 <li>
-                  <a
+                  <NavLink
                     href="#"
                     className="group text-sm text-secondaryFontColor font-DMsans font-normal flex sm:inline-block  items-center hover:text-black hover:bg-[#dadada60] py-2 px-4 sm:py-0 sm:px-0 sm:hover:bg-transparent"
                   >
                     Home
                     <IoMdHome className="text-lg ml-10 group-hover:text-black sm:hidden scale-0  group-hover:scale-105 transition-all" />
-                  </a>
+                  </NavLink>
                 </li>
                 <li className="py-2 sm:py-0">
                   {" "}
-                  <a
+                  <NavLink
                     href="#"
                     className="group text-sm text-secondaryFontColor font-DMsans font-normal flex sm:inline-block  items-center hover:text-black hover:bg-[#dadada60] py-2 px-4 sm:py-0 sm:px-0 sm:hover:bg-transparent"
                   >
                     Shop
                     <HiShoppingCart className="text-lg ml-[45px] group-hover:text-black sm:hidden scale-0  group-hover:scale-105 transition-all" />
-                  </a>
+                  </NavLink>
                 </li>
                 <li className="">
                   {" "}
-                  <a
+                  <NavLink
                     href="#"
                     className="group text-sm text-secondaryFontColor font-DMsans font-normal flex sm:inline-block  items-center hover:text-black hover:bg-[#dadada60] py-2 px-4 sm:py-0 sm:px-0 sm:hover:bg-transparent"
                   >
                     About
                     <BiDetail className="text-lg ml-10 group-hover:text-black sm:hidden scale-0  group-hover:scale-105 transition-all" />
-                  </a>
+                  </NavLink>
                 </li>
                 <li className="py-2 sm:py-0">
                   {" "}
-                  <a
+                  <NavLink
                     href="#"
                     className="group text-sm text-secondaryFontColor font-DMsans font-normal flex sm:inline-block  items-center hover:text-black hover:bg-[#dadada60] py-2 px-4 sm:py-0 sm:px-0 sm:hover:bg-transparent "
                   >
                     Contacts
                     <MdContactSupport className="text-lg ml-5 group-hover:text-black sm:hidden scale-0  group-hover:scale-105 transition-all" />
-                  </a>
+                  </NavLink>
                 </li>
                 <li>
-                  <a
+                  <NavLink
                     href="#"
                     className="group text-sm text-secondaryFontColor font-DMsans font-normal flex sm:inline-block  items-center hover:text-black hover:bg-[#dadada60] py-2 px-4 sm:py-0 sm:px-0 sm:hover:bg-transparent"
                   >
                     Journal
                     <BsJournalBookmarkFill className="text-base ml-8 group-hover:text-black sm:hidden scale-0  group-hover:scale-105 transition-all" />
-                  </a>
+                  </NavLink>
                 </li>
                 <img
                   src={logo}
@@ -156,28 +156,52 @@ const Header = () => {
               </div>
 
               <div
-                className={`bg-primaryFontColor text-[#fff] scale-0 text-opacity-70 flex flex-col w-[263px] absolute top-[96px] sm:[102px] left-[50%] sm:left-0 sm:translate-x-0 -translate-x-[50%] z-10 ${
-                  showCategory && "scale-100 transition-all"
+                className={`bg-primaryFontColor text-[#fff] opacity-0 text-opacity-70 flex flex-col w-[263px] absolute top-[96px] sm:[102px] left-[50%] sm:left-0 sm:translate-x-0 -translate-x-[50%] z-10 ${
+                  showCategory && "opacity-[1] transition-all"
                 }`}
               >
-                {[
-                  "Accesories",
-                  "Furniture",
-                  "Electronics",
-                  "Clothes",
-                  "Bags",
-                  "Home appliances",
-                ].map((item, index) => {
-                  return (
-                    <a
-                      href="#"
-                      key={index}
-                      className="py-4 pl-5 font-DMsans text-sm font-normal border-b-2 border-[#97979727] hover:font-bold hover:pl-7 hover:text-white transition-all "
-                    >
-                      {item}
-                    </a>
-                  );
-                })}
+                <Link
+                  to={"/"}
+                  href="#"
+                  className="py-4 pl-5 font-DMsans text-sm font-normal border-b-2 border-[#97979727] hover:font-bold hover:pl-7 hover:text-white transition-all "
+                >
+                  Accesories
+                </Link>
+                <Link
+                  to={"/"}
+                  href="#"
+                  className="py-4 pl-5 font-DMsans text-sm font-normal border-b-2 border-[#97979727] hover:font-bold hover:pl-7 hover:text-white transition-all "
+                >
+                  Furniture
+                </Link>
+                <Link
+                  to={"/"}
+                  href="#"
+                  className="py-4 pl-5 font-DMsans text-sm font-normal border-b-2 border-[#97979727] hover:font-bold hover:pl-7 hover:text-white transition-all "
+                >
+                  Electronics
+                </Link>
+                <Link
+                  to={"/"}
+                  href="#"
+                  className="py-4 pl-5 font-DMsans text-sm font-normal border-b-2 border-[#97979727] hover:font-bold hover:pl-7 hover:text-white transition-all "
+                >
+                  Clothes
+                </Link>
+                <Link
+                  to={"/"}
+                  href="#"
+                  className="py-4 pl-5 font-DMsans text-sm font-normal border-b-2 border-[#97979727] hover:font-bold hover:pl-7 hover:text-white transition-all "
+                >
+                  Bags
+                </Link>
+                <Link
+                  to={"/"}
+                  href="#"
+                  className="py-4 pl-5 font-DMsans text-sm font-normal border-b-2 border-[#97979727] hover:font-bold hover:pl-7 hover:text-white transition-all "
+                >
+                  Home appliances
+                </Link>
               </div>
               <div className="midle">
                 <div className="relative">
@@ -204,20 +228,20 @@ const Header = () => {
 
                   {showuser && (
                     <div className="z-20 absolute top-[104px] right-[59px]  flex flex-col items-center w-[200px]">
-                      <a
+                      <Link
                         href="#"
                         className="cursor-pointer py-4 w-full text-white bg-primaryFontColor font-DMsans font-bold text-sm text-center hover:bg-[#383838]"
                       >
                         My Account
-                      </a>
+                      </Link>
 
-                      <a
+                      <Link
                         href="#"
                         className="group logout cursor-pointer py-4 flex gap-x-2 items-center justify-center w-full bg-white text-black font-semibold text-sm hover:bg-[#f0f0f0] transition-all"
                       >
                         Log Out
                         <BiLogOutCircle className="scale-150 group-hover:text-red-400" />
-                      </a>
+                      </Link>
                     </div>
                   )}
 
@@ -235,9 +259,9 @@ const Header = () => {
                     />
                   </div>
 
-                  {showCart === true && (
+                  {showCart === true ? (
                     <div
-                      className={`cartOverlay bg-white absolute top-[104px] right-0 z-10 shadow-lg sm:shadow-none`}
+                      className={`cartOverlay bg-white absolute top-[104px] right-[8px] sm:right-0 z-10 shadow-lg sm:shadow-none`}
                     >
                       <div className="flex justify-center sm:justify-between items-center bg-[#F5F5F3] px-5 py-5">
                         <div className="h-[80px] w-[80px]">
@@ -289,7 +313,7 @@ const Header = () => {
                         </div>
                       </div>
                     </div>
-                  )}
+                  ) : null}
                 </div>
               </div>
             </div>
