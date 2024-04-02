@@ -99,21 +99,21 @@ const Intro = () => {
       <div className="border-b-2 border-[#cccccc6b]">
         <div className="container">
           <div className="py-7 flex items-center justify-between px-4 sm:px-0">
-            <div className="flex items-center gap-x-4">
+            <div className="flex items-center gap-x-[3px] sm:gap-x-4">
               <img src={twoImg} alt={twoImg} />
-              <p className="text-base font-DMsans font-normal text-thirdFontColor hidden sm:block">
+              <p className="text-[9px] sm:text-base font-DMsans font-normal text-thirdFontColor">
                 Two years warranty
               </p>
             </div>
-            <div className="flex items-center gap-x-4">
-              <FaTruck className="text-2xl " />
-              <p className="text-base font-DMsans font-normal text-thirdFontColor  hidden sm:block">
+            <div className="flex items-center gap-x-[3px] sm:gap-x-4">
+              <FaTruck className="text-xl sm:text-2xl" />
+              <p className="text-[9px] sm:text-base font-DMsans font-normal text-thirdFontColor">
                 Free shipping
               </p>
             </div>
-            <div className="flex items-center gap-x-4">
-              <IoReloadOutline className="text-2xl " />
-              <p className="text-base font-DMsans font-normal text-thirdFontColor hidden sm:block">
+            <div className="flex items-center gap-x-[3px] sm:gap-x-4">
+              <IoReloadOutline className="text-xl sm:text-2xl" />
+              <p className="text-[9px] sm:text-base font-DMsans font-normal text-thirdFontColor">
                 Return policy in 30 days
               </p>
             </div>
