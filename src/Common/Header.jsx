@@ -8,6 +8,7 @@ import { RiMenuFoldFill } from "react-icons/ri";
 import { RxCross2 } from "react-icons/rx";
 import { IoMdHome } from "react-icons/io";
 import { HiShoppingCart } from "react-icons/hi";
+import { FaCartArrowDown } from "react-icons/fa";
 import { BiDetail } from "react-icons/bi";
 import { MdContactSupport } from "react-icons/md";
 import { BsJournalBookmarkFill } from "react-icons/bs";
@@ -18,7 +19,6 @@ import logo from "../assets/logo.png";
 import Tooltip from "./Tooltip";
 import { IoCaretDownSharp } from "react-icons/io5";
 import { Link, NavLink } from "react-router-dom";
-
 const Header = () => {
   const [isshow, setisshow] = useState(false);
   const [showCategory, setshowCategory] = useState(false);
@@ -35,12 +35,16 @@ const Header = () => {
   // categary functionality
 
   const HandleCategory = () => {
+    setshowuser(false);
+    setshowCart(false);
     setshowCategory(!showCategory);
   };
 
   // cart functionality
 
   const HandleCart = () => {
+    setshowCategory(false);
+    setshowuser(false);
     setshowCart(!showCart);
   };
 
@@ -51,12 +55,19 @@ const Header = () => {
   // user functionality
 
   const HandleUser = () => {
+    setshowCategory(false);
+    setshowCart(false);
     setshowuser(!showuser);
+  };
+
+  // menu ref
+  const MenuRef = (e) => {
+    console.log(e);
   };
 
   return (
     <>
-      <div>
+      <div ref={MenuRef}>
         <div className="container">
           <div className="flex items-center py-8 px-4 sm:px-0 justify-between ">
             <div className="cursor-pointer">
@@ -249,7 +260,11 @@ const Header = () => {
                     className="cursor-pointer relative group"
                     onClick={HandleCart}
                   >
-                    <FaShoppingCart className="text-lg" title="Shoping" />
+                    {showCart ? (
+                      <FaCartArrowDown className="text-lg transition-all" />
+                    ) : (
+                      <FaShoppingCart className="text-lg  transition-all" />
+                    )}
                     <Tooltip
                       TooltipTitle={"Shoping cart"}
                       className={"whitespace-nowrap right-[-3px] sm:right-0"}
