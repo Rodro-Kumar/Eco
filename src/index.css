@@ -135,6 +135,10 @@
     -ms-transition: all linear 0.1s;
     -o-transition: all linear 0.1s;
   }
+
+  .cartOverlay-active {
+    display: none;
+  }
 }
 
 .slick-dots ul .slick-active {
