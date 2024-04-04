@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { HiMenuAlt4 } from "react-icons/hi";
 import { FaSearch } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
@@ -23,12 +23,15 @@ const Header = () => {
   const [isshow, setisshow] = useState(false);
   const [showCategory, setshowCategory] = useState(false);
   const [showCart, setshowCart] = useState(false);
-  const [unshowCart, setunshowCart] = useState(false);
   const [showuser, setshowuser] = useState(false);
+  const Menuref = useRef();
 
   // menubar functionality
 
   const HandleMenuBar = () => {
+    setshowCategory(false);
+    setshowuser(false);
+    setshowCart(false);
     setisshow(!isshow);
   };
 
@@ -37,6 +40,7 @@ const Header = () => {
   const HandleCategory = () => {
     setshowuser(false);
     setshowCart(false);
+    setisshow(false);
     setshowCategory(!showCategory);
   };
 
@@ -45,29 +49,32 @@ const Header = () => {
   const HandleCart = () => {
     setshowCategory(false);
     setshowuser(false);
+    setisshow(false);
     setshowCart(!showCart);
-  };
-
-  const HandleCross = () => {
-    setunshowCart(!unshowCart);
   };
 
   // user functionality
 
   const HandleUser = () => {
+    setisshow(false);
     setshowCategory(false);
     setshowCart(false);
     setshowuser(!showuser);
   };
 
-  // menu ref
-  const MenuRef = (e) => {
-    console.log(e);
-  };
+  // menu ref functionality
+  useEffect(() => {
+    window.addEventListener("click", (e) => {
+      if (!Menuref.current.contains(e.target)) {
+        setshowCategory(false);
+        setshowuser(false);
+      }
+    });
+  }, []);
 
   return (
     <>
-      <div ref={MenuRef}>
+      <div ref={Menuref}>
         <div className="container">
           <div className="flex items-center py-8 px-4 sm:px-0 justify-between ">
             <div className="cursor-pointer">
@@ -156,7 +163,7 @@ const Header = () => {
                   onClick={HandleCategory}
                 >
                   <HiMenuAlt4 className="text-2xl sm:text-xl" />
-                  <p className="text-sm text-primaryFontColor font-normal font-DMsans hidden sm:block">
+                  <p className="text-sm text-primaryFontColor sm:pr-4 md:pr-0 font-normal whitespace-nowrap font-DMsans hidden sm:block">
                     Shop by Category
                   </p>
                 </div>
@@ -219,15 +226,15 @@ const Header = () => {
                   <input
                     type="text"
                     placeholder="Search Products"
-                    className="pl-5 py-3 sm:py-4  pr-[8px] sm:pr-[473px] placeholder:text-sm placeholder:text-[#C4C4C4] placeholder:font-DMsans placeholder:font-normal focus:outline-none  focus:ring-yellow-600 focus:ring-1 focus:rounded-md"
+                    className="pl-5 py-3 sm:py-4 pr-[8px] sm:pr-[200px] md:pr-[473px] placeholder:text-sm placeholder:text-[#C4C4C4] placeholder:font-DMsans placeholder:font-normal focus:outline-none  focus:ring-yellow-600 focus:ring-1 focus:rounded-md"
                   />
                   <div className="absolute top-0 right-0 my-4 pr-5 ">
                     <FaSearch className="text-xl sm:text-2xl" />
                   </div>
                 </div>
               </div>
-              <div className="right">
-                <div className="flex items-center gap-x-3 sm:gap-x-10">
+              <div className="right pl-5">
+                <div className="flex items-center gap-x-3 md:gap-x-10 sm:gap-x-4">
                   <div
                     className="group relative flex items-center cursor-pointer text-lg "
                     onClick={HandleUser}
@@ -276,7 +283,7 @@ const Header = () => {
 
                   {showCart === true ? (
                     <div
-                      className={`cartOverlay bg-white absolute top-[104px] right-[8px] sm:right-0 z-10 shadow-lg sm:shadow-none`}
+                      className={`cartOverlay bg-white absolute top-[104px]  right-[8px] sm:right-0 z-30 shadow-lg sm:shadow-none`}
                     >
                       <div className="flex justify-center sm:justify-between items-center bg-[#F5F5F3] px-5 py-5">
                         <div className="h-[80px] w-[80px]">
@@ -293,7 +300,7 @@ const Header = () => {
                           </div>
                           <div
                             className="ml-14 sm:ml-16 cursor-pointer hover:scale-150 transition-all "
-                            onClick={HandleCross}
+                            onClick={() => setshowCart(false)}
                           >
                             <RxCross2 />
                           </div>
@@ -311,7 +318,7 @@ const Header = () => {
                         <div>
                           <Button
                             className={
-                              "cartBtn py-[14px] px-8 sm:py-4 sm:px-10 text-white hover:outline-dashed hover:outline-2 hover:outline-black hover:border-[#000] whitespace-nowrap"
+                              "cartBtn py-[14px] px-8 sm:py-4 sm:px-10 text-white hover:outline-dashed hover:outline-2 hover:outline-black hover:border-[#000] whitespace-nowrap hover:bg-transparent"
                             }
                           >
                             View Cart
@@ -320,7 +327,7 @@ const Header = () => {
                         <div>
                           <Button
                             className={
-                              "cartBtn py-[14px] px-8 sm:py-4 sm:px-10 text-white hover:outline-dashed hover:outline-2 hover:outline-black"
+                              "cartBtn py-[14px] px-8 sm:py-4 sm:px-10 text-white hover:outline-dashed hover:outline-2 hover:outline-black hover:bg-transparent"
                             }
                           >
                             Checkout
