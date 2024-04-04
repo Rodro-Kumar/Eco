@@ -80,6 +80,14 @@ const settings = {
         dots: true,
       },
     },
+
+    {
+      breakpoint: 770,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+      },
+    },
     {
       breakpoint: 600,
       settings: {
