@@ -50,6 +50,15 @@ const Intro = () => {
       },
 
       {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: false,
+        },
+      },
+
+      {
         breakpoint: 700,
         settings: {
           slidesToShow: 1,
