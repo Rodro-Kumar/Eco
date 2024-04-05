@@ -156,7 +156,7 @@ const Header = () => {
         {/* =========== Bottom =========== */}
         <div className="bg-[#F5F5F3]">
           <div className="container">
-            <div className="py-6 flex items-center justify-between px-4 sm:px-0 relative">
+            <div className="py-6 flex items-center justify-between px-4 lg:px-0 relative">
               <div className="left relative group">
                 <div
                   className="flex items-center gap-x-[10px] cursor-pointer"
@@ -226,15 +226,15 @@ const Header = () => {
                   <input
                     type="text"
                     placeholder="Search Products"
-                    className="pl-5 py-3 sm:py-4 pr-[8px] sm:pr-[200px] md:pr-[473px] placeholder:text-sm placeholder:text-[#C4C4C4] placeholder:font-DMsans placeholder:font-normal focus:outline-none  focus:ring-yellow-600 focus:ring-1 focus:rounded-md"
+                    className="pl-5 py-3 sm:py-4 pr-[8px] sm:pr-[170px] md:pr-[220px] lg:pr-[473px] placeholder:text-sm placeholder:text-[#C4C4C4] placeholder:font-DMsans placeholder:font-normal focus:outline-none  focus:ring-yellow-600 focus:ring-1 focus:rounded-md max-[348px]:pr-[4px] max-[330px]:ml-[6px] max-[330px]:pr-[3px]"
                   />
-                  <div className="absolute top-0 right-0 my-4 pr-5 ">
-                    <FaSearch className="text-xl sm:text-2xl" />
+                  <div className="absolute top-0 right-0 my-4 pr-5 bg-white">
+                    <FaSearch className="text-xl sm:text-2xl z-10" />
                   </div>
                 </div>
               </div>
-              <div className="right pl-5">
-                <div className="flex items-center gap-x-3 md:gap-x-10 sm:gap-x-4">
+              <div className="right pl-4 lg:pl-5 max-[348px]:pl-2">
+                <div className="flex items-center gap-x-3 md:gap-x-10 sm:gap-x-4 max-[348px]:gap-x-2">
                   <div
                     className="group relative flex items-center cursor-pointer text-lg "
                     onClick={HandleUser}
