@@ -8,8 +8,11 @@ const Footer = () => {
     <>
       <div className="py-14">
         <div className="container">
-          <div className="flex  items-start justify-center flex-col sm:justify-between sm:flex-col md:flex-row">
-            <div className="flex justify-between sm:w-full md:w-auto gap-x-10 pb-8 sm:gap-x-36">
+          <div className="flex  items-start justify-center flex-col sm:justify-between sm:flex-col md:flex-row px-4 md:px-4 lg:px-0">
+            <div
+              className="flex justify-between sm:w-full md:w-auto gap-x-10 md:gap-x-14 lg:gap-x-36
+             pb-8 sm:gap-x-36"
+            >
               <FooterItem
                 title={"MENU"}
                 allitem={["Home", "Shop", "About", "Contact", "Journal"]}
@@ -35,7 +38,7 @@ const Footer = () => {
                 ]}
               />
             </div>
-            <div className="flex items-center justify-between md:gap-x-[195px] w-full md:w-auto">
+            <div className="flex items-center justify-between md:gap-x-[15px] lg:gap-x-[80px] w-full md:w-auto">
               <div className="pb-8 sm:pb-8 md:pb-0">
                 <div className="text-[#262626] font-DMsans font-bold text-lg text-left">
                   <a href="tel:(052) 611-5711">(052) 611-5711</a>
