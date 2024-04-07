@@ -81,38 +81,33 @@ const settings = {
         dots: true,
       },
     },
-
-    {
-      breakpoint: 700,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        dots: false,
-      },
-    },
     {
       breakpoint: 770,
       settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
+        slidesToShow: 3,
+        slidesToScroll: 3,
       },
     },
     {
       breakpoint: 600,
       settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        dots: false,
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        initialSlide: 2,
       },
     },
     {
-      breakpoint: 575,
+      breakpoint: 414,
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,
-
-        speed: 300,
-        dots: false,
+      },
+    },
+    {
+      breakpoint: 375,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
       },
     },
   ],
