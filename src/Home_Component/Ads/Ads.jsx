@@ -14,7 +14,7 @@ const Ads = () => {
               <img src={phoneAds} alt={phoneAds} />
               <Overlay
                 className={
-                  "absolute bottom-[51px] sm:bottom-[72px] left-10 md:left-16"
+                  "absolute bottom-[51px] md:bottom-[37px] lg:bottom-[72px] sm:bottom-[37px] left-10 md:left-16"
                 }
                 AdsHeading={"Phones Sale"}
                 Discout={"30%"}
@@ -47,7 +47,7 @@ const Ads = () => {
                 />
                 <Overlay
                   className={
-                    "absolute top-1/2 sm:top-[65px] md:top-1/2 -translate-y-1/2 md:left-[50px] sm:left-[22px]"
+                    "absolute top-1/2 left-[20px] sm:top-[65px] md:top-1/2 -translate-y-1/2 md:left-[50px] sm:left-[22px] max-[354px]:left-[10px]"
                   }
                   AdsHeading={"Furniture Offer"}
                   Discout={"50%"}
