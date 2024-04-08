@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { HiMenuAlt4 } from "react-icons/hi";
 import { FaSearch } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
@@ -19,12 +19,13 @@ import logo from "../assets/logo.png";
 import Tooltip from "./Tooltip";
 import { IoCaretDownSharp } from "react-icons/io5";
 import { Link, NavLink } from "react-router-dom";
+
 const Header = () => {
   const [isshow, setisshow] = useState(false);
   const [showCategory, setshowCategory] = useState(false);
   const [showCart, setshowCart] = useState(false);
   const [showuser, setshowuser] = useState(false);
-  const Menuref = useRef();
+  // const Menuref = useRef();
 
   // menubar functionality
 
@@ -63,18 +64,18 @@ const Header = () => {
   };
 
   // menu ref functionality
-  useEffect(() => {
-    window.addEventListener("click", (e) => {
-      if (!Menuref.current.contains(e.target)) {
-        setshowCategory(false);
-        setshowuser(false);
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   window.addEventListener("click", (e) => {
+  //     if (!Menuref.current.contains(e.target)) {
+  //       setshowCategory(false);
+  //       setshowuser(false);
+  //     }
+  //   });
+  // }, []);
 
   return (
     <>
-      <div ref={Menuref}>
+      <div>
         <div className="container">
           <div className="flex items-center py-8 px-4 sm:px-0 justify-between ">
             <div className="cursor-pointer">

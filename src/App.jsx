@@ -1,7 +1,7 @@
 import React from "react";
 import Home from "./Pages/Home/Home";
-import Shop from "./Pages/Shop/Shop";
-import Error from "./Common/Error";
+// import Shop from "./Pages/Shop/Shop";
+// import Error from "./Common/Error";
 import RootLayout from "./Common/RootLayout/RootLayout";
 
 import {
@@ -15,8 +15,6 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<RootLayout />} path="/">
       <Route index element={<Home />} />
-      <Route path="shop" element={<Shop />} />
-      <Route path="*" element={<Error />} />
     </Route>
   )
 );
