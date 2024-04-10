@@ -25,7 +25,7 @@ const Header = () => {
   const [showCategory, setshowCategory] = useState(false);
   const [showCart, setshowCart] = useState(false);
   const [showuser, setshowuser] = useState(false);
-  // const Menuref = useRef();
+  const Menuref = useRef();
 
   // menubar functionality
 
@@ -64,14 +64,14 @@ const Header = () => {
   };
 
   // menu ref functionality
-  // useEffect(() => {
-  //   window.addEventListener("click", (e) => {
-  //     if (!Menuref.current.contains(e.target)) {
-  //       setshowCategory(false);
-  //       setshowuser(false);
-  //     }
-  //   });
-  // }, []);
+  useEffect(() => {
+    window.addEventListener("click", (e) => {
+      if (!Menuref.current.contains(e.target)) {
+        setshowCategory(false);
+        setshowuser(false);
+      }
+    });
+  }, []);
 
   return (
     <>
