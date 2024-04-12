@@ -25,7 +25,7 @@ const Header = () => {
   const [showCategory, setshowCategory] = useState(false);
   const [showCart, setshowCart] = useState(false);
   const [showuser, setshowuser] = useState(false);
-  const Menuref = useRef();
+  // const Menuref = useRef();
 
   // menubar functionality
 
@@ -40,38 +40,36 @@ const Header = () => {
 
   const HandleCategory = () => {
     setshowuser(false);
-    setshowCart(false);
     setisshow(false);
     setshowCategory(!showCategory);
   };
 
   // cart functionality
 
-  const HandleCart = () => {
-    setshowCategory(false);
-    setshowuser(false);
-    setisshow(false);
-    setshowCart(!showCart);
-  };
+  // const HandleCart = () => {
+  //   setshowCategory(false);
+  //   setshowuser(false);
+  //   setisshow(false);
+  //   setshowCart(!showCart);
+  // };
 
   // user functionality
 
   const HandleUser = () => {
     setisshow(false);
     setshowCategory(false);
-    setshowCart(false);
     setshowuser(!showuser);
   };
 
   // menu ref functionality
-  useEffect(() => {
-    window.addEventListener("click", (e) => {
-      if (!Menuref.current.contains(e.target)) {
-        setshowCategory(false);
-        setshowuser(false);
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   window.addEventListener("click", (e) => {
+  //     if (!Menuref.current.contains(e.target)) {
+  //       setshowCategory(false);
+  //       setshowuser(false);
+  //     }
+  //   });
+  // }, []);
 
   return (
     <>
@@ -182,14 +180,14 @@ const Header = () => {
                 <Link
                   to={"/"}
                   href="#"
-                  className="py-4 pl-5 font-DMsans text-sm font-normal border-b-2 border-[#97979727] hover:font-bold hover:pl-7 hover:text-white transition-all "
+                  className="py-4 pl-5 font-DMsans text-sm font-normal border-b-2 border-[#97979727] hover:font-bold hover:pl-7 hover:text-white transition-all"
                 >
                   Accesories
                 </Link>
                 <Link
                   to={"/"}
                   href="#"
-                  className="py-4 pl-5 font-DMsans text-sm font-normal border-b-2 border-[#97979727] hover:font-bold hover:pl-7 hover:text-white transition-all "
+                  className="py-4 pl-5 font-DMsans text-sm font-normal border-b-2 border-[#97979727] hover:font-bold hover:pl-7 hover:text-white transition-all"
                 >
                   Furniture
                 </Link>
@@ -264,15 +262,13 @@ const Header = () => {
                     </div>
                   )}
 
-                  <div
-                    className="cursor-pointer relative group"
-                    onClick={HandleCart}
-                  >
+                  <div className="cursor-pointer relative group">
                     {showCart ? (
-                      <FaCartArrowDown className="text-lg transition-all" />
-                    ) : (
                       <FaShoppingCart className="text-lg  transition-all" />
+                    ) : (
+                      <FaCartArrowDown className="text-lg transition-all" />
                     )}
+
                     <Tooltip
                       TooltipTitle={"Shoping cart"}
                       className={"whitespace-nowrap right-[-3px] sm:right-0"}
@@ -281,8 +277,7 @@ const Header = () => {
                       }
                     />
                   </div>
-
-                  {showCart === true ? (
+                  {showCart && (
                     <div
                       className={`cartOverlay bg-white absolute top-[104px]  right-[8px] sm:right-0 z-30 shadow-lg sm:shadow-none`}
                     >
@@ -336,7 +331,7 @@ const Header = () => {
                         </div>
                       </div>
                     </div>
-                  ) : null}
+                  )}
                 </div>
               </div>
             </div>
