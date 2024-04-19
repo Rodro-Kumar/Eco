@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { HiMenuAlt4 } from "react-icons/hi";
 import { FaSearch } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
@@ -25,7 +25,7 @@ const Header = () => {
   const [showCategory, setshowCategory] = useState(false);
   const [showCart, setshowCart] = useState(false);
   const [showuser, setshowuser] = useState(false);
-  // const Menuref = useRef();
+  const Menuref = useRef();
 
   // menubar functionality
 
@@ -46,12 +46,12 @@ const Header = () => {
 
   // cart functionality
 
-  // const HandleCart = () => {
-  //   setshowCategory(false);
-  //   setshowuser(false);
-  //   setisshow(false);
-  //   setshowCart(!showCart);
-  // };
+  const HandleCart = () => {
+    setshowCategory(false);
+    setshowuser(false);
+    setisshow(false);
+    setshowCart(!showCart);
+  };
 
   // user functionality
 
@@ -62,14 +62,14 @@ const Header = () => {
   };
 
   // menu ref functionality
-  // useEffect(() => {
-  //   window.addEventListener("click", (e) => {
-  //     if (!Menuref.current.contains(e.target)) {
-  //       setshowCategory(false);
-  //       setshowuser(false);
-  //     }
-  //   });
-  // }, []);
+  useEffect(() => {
+    window.addEventListener("click", (e) => {
+      if (!Menuref.current.contains(e.target)) {
+        setshowCategory(false);
+        setshowuser(false);
+      }
+    });
+  }, []);
 
   return (
     <>
@@ -262,7 +262,10 @@ const Header = () => {
                     </div>
                   )}
 
-                  <div className="cursor-pointer relative group">
+                  <div
+                    className="cursor-pointer relative group"
+                    onClick={HandleCart}
+                  >
                     {showCart ? (
                       <FaShoppingCart className="text-lg  transition-all" />
                     ) : (
